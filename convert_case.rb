@@ -3,6 +3,7 @@
 require "taglib"
 require "term/ansicolor"
 require "highline/import"
+require "titleize"
 
 require "pry"
 
@@ -30,11 +31,11 @@ Dir.glob(File.join(ARGV[0], "**")).each do |folder|
     TagLib::MPEG::File.open(song_file) do |file|
       print bold, song_file, reset, "\n"
 
-      artist = ask_if_necessary(:artist, file).downcase
+      artist = ask_if_necessary(:artist, file).titleize
       print bold, blue, 'artist', reset, " :: ", artist, "\n"
-      album = ask_if_necessary(:album, file).downcase
+      album = ask_if_necessary(:album, file).titleize
       print bold, blue, 'album', reset, " :: ", album, "\n"
-      title = ask_if_necessary(:title, file).downcase
+      title = ask_if_necessary(:title, file).titleize
       print bold, blue, 'title', reset, " :: ", title, "\n"
       track = ask_if_necessary(:track, file)
       print bold, blue, 'track', reset, " :: ", track.to_s, "\n"
