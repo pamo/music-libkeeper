@@ -5,6 +5,7 @@ gem "mime-types"
 gem "term-ansicolor"
 gem "dimensions"
 gem "highline"
+gem "titleize"
 
 gem "pry"
 gem "pry-nav"
